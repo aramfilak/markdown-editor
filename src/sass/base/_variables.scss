@@ -1,4 +1,4 @@
-:root {
+body {
   --1000: #151619;
   --900: #1d1f22;
   --800: #2b2d31;
@@ -9,7 +9,14 @@
   --300: #e4e4e4;
   --200: #f5f5f5;
   --100: #fff;
-
   --orange: #e46643;
   --orange-hover: #f39765;
+  --editor-bg: var(--1000);
+  --editor-h: var(--100);
+
+  ---main-transition: all 0.3s ease-in-out;
+}
+body.light-theme {
+  --editor-bg: var(--100);
+  --editor-h: var(--1000);
 }

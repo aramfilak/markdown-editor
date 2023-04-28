@@ -19,6 +19,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"],
+  "include": ["src", "app-design-chart/@types"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

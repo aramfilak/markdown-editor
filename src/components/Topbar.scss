@@ -1,0 +1,83 @@
+@use "../sass/abstracts/" as *;
+.topbar {
+  display: flex;
+  align-items: center;
+  background-color: var(--800);
+  justify-content: space-between;
+
+  .left-side {
+    display: flex;
+    align-items: center;
+    gap: rem(24);
+    .sidebar-toggle-btn {
+      width: rem(72);
+      height: rem(72);
+      background-color: var(--700);
+      transform: scaleX(-100%);
+    }
+    .logo {
+      display: none;
+    }
+    .rename-document {
+      display: flex;
+      width: rem(160);
+      position: relative;
+      .text-field {
+        background-color: inherit;
+        border: none;
+        color: var(--100);
+        outline: none;
+        height: 1.2em;
+        overflow: scroll;
+      }
+      .text-field:focus {
+        border-bottom: 1px solid var(--100);
+      }
+      svg {
+        width: rem(30);
+      }
+      &::before {
+        content: "Document Name";
+        color: var(--400);
+        font-weight: 300;
+        position: absolute;
+        top: rem(-20);
+        left: rem(22);
+        font-size: rem(13);
+      }
+    }
+  }
+
+  .right-side {
+    display: flex;
+    align-items: center;
+    gap: rem(10);
+    padding-right: rem(10);
+    .delete-document-btn {
+      padding: rem(12);
+      &:hover svg > path {
+        fill: var(--orange);
+        transition: var(---main-transition);
+      }
+    }
+
+    .save-document-btn {
+      background-color: var(--orange);
+      padding: rem(12);
+      border-radius: rem(4);
+
+      &:hover {
+        background-color: var(--orange-hover);
+        transition: var(---main-transition);
+      }
+    }
+  }
+
+  @include mq(xl) {
+    .left-side {
+      .logo {
+        display: block;
+      }
+    }
+  }
+}
