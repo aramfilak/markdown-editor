@@ -1,9 +1,8 @@
 import "./TopBar.scss";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useGlobalContext } from "../hooks/useGlobalContext";
 import { CloseSvg, DeleteSvg, DocumentSvg, LogoSvg, MenuSvg, SaveSvg } from "../assets/Svg";
 const TopToolsBar: React.FC = (): JSX.Element => {
-  // Context API
   const {
     documents,
     setDocuments,
@@ -12,14 +11,18 @@ const TopToolsBar: React.FC = (): JSX.Element => {
     sidebarIsClosed,
     setSidebarIsClosed,
   } = useGlobalContext()!;
-  const [documentName, setDocumentName] = useState(currentDocument?.name || "");
+  const [documentName, setDocumentName] = useState(currentDocument?.name!);
+
+  useEffect(() => {
+    setDocumentName(currentDocument?.name!);
+  }, [currentDocument]);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setDocumentName(event.target.value);
   };
 
-  const handleSaveDocument = (): void => {
-    if (documents.length && currentDocument) {
+  const saveDocument = (): void => {
+    if (currentDocument) {
       currentDocument.name = documentName;
       const newDocuments = documents.map((document) => {
         if (document.id === currentDocument.id) {
@@ -36,14 +39,14 @@ const TopToolsBar: React.FC = (): JSX.Element => {
     }
   };
 
-  const handleDeleteDocument = (): void => {
+  const deleteDocument = (): void => {
     if (documents.length && currentDocument) {
       const newDocuments = documents.filter((document) => {
         return document.id !== currentDocument.id;
       });
       setDocuments(newDocuments);
       setCurrentDocument(newDocuments[0]);
-      setDocumentName(newDocuments[0]?.name || "");
+      setDocumentName(newDocuments[0]?.name);
     } else {
       setDocumentName("");
       setCurrentDocument(null);
@@ -54,7 +57,7 @@ const TopToolsBar: React.FC = (): JSX.Element => {
     <div className="topbar">
       <div className="left-side">
         <button className="sidebar-toggle-btn" onClick={() => setSidebarIsClosed(!sidebarIsClosed)}>
-          {sidebarIsClosed ? <CloseSvg /> : <MenuSvg />}
+          {sidebarIsClosed ? <MenuSvg /> : <CloseSvg />}
         </button>
         <LogoSvg />
         {/* Rename Document  */}
@@ -71,11 +74,11 @@ const TopToolsBar: React.FC = (): JSX.Element => {
       </div>
       {/* Delete Document  */}
       <div className="right-side">
-        <button className="delete-document-btn" onClick={handleDeleteDocument}>
+        <button className="delete-document-btn" onClick={deleteDocument}>
           <DeleteSvg />
         </button>
         {/* Save Document  */}
-        <button className="save-document-btn" onClick={handleSaveDocument}>
+        <button className="save-document-btn" onClick={saveDocument}>
           <SaveSvg />
         </button>
       </div>

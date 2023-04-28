@@ -2,8 +2,8 @@
 .topbar {
   display: flex;
   align-items: center;
-  background-color: var(--800);
   justify-content: space-between;
+  background-color: var(--800);
 
   .left-side {
     display: flex;
@@ -13,7 +13,6 @@
       width: rem(72);
       height: rem(72);
       background-color: var(--700);
-      transform: scaleX(-100%);
     }
     .logo {
       display: none;
@@ -31,7 +30,7 @@
         overflow: scroll;
       }
       .text-field:focus {
-        border-bottom: 1px solid var(--100);
+        box-shadow: 0 1px 0 0 var(--100);
       }
       svg {
         width: rem(30);
@@ -57,7 +56,6 @@
       padding: rem(12);
       &:hover svg > path {
         fill: var(--orange);
-        transition: var(---main-transition);
       }
     }
 
@@ -68,7 +66,6 @@
 
       &:hover {
         background-color: var(--orange-hover);
-        transition: var(---main-transition);
       }
     }
   }

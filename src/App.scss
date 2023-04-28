@@ -1,0 +1,7 @@
+.app {
+  overflow: hidden;
+  display: flex;
+  .app-body {
+    min-width: 100vw;
+  }
+}

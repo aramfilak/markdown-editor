@@ -20,7 +20,7 @@ export const LogoSvg = () => {
   );
 };
 
-export const ShowSvg = () => {
+export const PreviewSvg = () => {
   return (
     <svg width="16" height="12" xmlns="http://www.w3.org/2000/svg">
       <path
@@ -84,7 +84,7 @@ export const DeleteSvg = () => {
   );
 };
 
-export const DarkSvg = () => {
+export const DarkModeSvg = () => {
   return (
     <svg width="17" height="16" xmlns="http://www.w3.org/2000/svg">
       <path
