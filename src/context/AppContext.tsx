@@ -1,6 +1,7 @@
 import React, { createContext, useState } from "react";
 import initialSetup from "../data/initial_setup.json";
 import { Document } from "../../@types/Document";
+
 interface Context {
   documents: Document[];
   setDocuments: React.Dispatch<React.SetStateAction<Document[]>>;
@@ -9,6 +10,7 @@ interface Context {
   sidebarIsClosed: boolean;
   setSidebarIsClosed: React.Dispatch<React.SetStateAction<boolean>>;
 }
+
 interface ProviderProps {
   children: React.ReactNode;
 }

@@ -4,6 +4,8 @@ import { v4 as uuidv4 } from "uuid";
 import { useGlobalContext } from "../hooks/useGlobalContext";
 import { LogoSvg, DocumentSvg } from "../assets/Svg";
 import { Document } from "../../@types/Document";
+import ThemeSwitcher from "./ThemeSwitcher";
+import { toast } from "react-toastify";
 const SideToolsBar: React.FC = (): JSX.Element => {
   const { documents, setDocuments, setCurrentDocument, sidebarIsClosed } = useGlobalContext()!;
 
@@ -14,11 +16,12 @@ const SideToolsBar: React.FC = (): JSX.Element => {
 
     const newDocuments: Document = {
       id: uuidv4(),
-      name: "document.md",
+      name: "untitled-document.md",
       createdAt: createdDate,
       content: "",
     };
     setDocuments([...documents, newDocuments]);
+    toast.info("blank document created");
   };
 
   const renderedDocuments = documents.map((document) => {
@@ -53,6 +56,7 @@ const SideToolsBar: React.FC = (): JSX.Element => {
             </button>
             <div className="documents">{renderedDocuments}</div>
           </div>
+          <ThemeSwitcher />
         </aside>
       )}
     </>

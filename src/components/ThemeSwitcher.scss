@@ -1,0 +1,28 @@
+@use "../sass/abstracts/" as *;
+
+.theme-switcher {
+  display: flex;
+  gap: rem(12);
+  .switch-btn {
+    position: relative;
+    width: rem(48);
+    height: rem(24);
+    background-color: var(--600);
+    border-radius: rem(14.5);
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      left: 75%;
+      transform: translate(-50%, -50%);
+      content: "";
+      width: rem(12);
+      height: rem(12);
+      background-color: var(--100);
+      border-radius: 50%;
+    }
+    &.dark-mode::after {
+      left: 25%;
+    }
+  }
+}

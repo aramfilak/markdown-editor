@@ -2,6 +2,8 @@ import "./TopBar.scss";
 import React, { useState, useEffect } from "react";
 import { useGlobalContext } from "../hooks/useGlobalContext";
 import { CloseSvg, DeleteSvg, DocumentSvg, LogoSvg, MenuSvg, SaveSvg } from "../assets/Svg";
+import { toast } from "react-toastify";
+
 const TopToolsBar: React.FC = (): JSX.Element => {
   const {
     documents,
@@ -11,10 +13,10 @@ const TopToolsBar: React.FC = (): JSX.Element => {
     sidebarIsClosed,
     setSidebarIsClosed,
   } = useGlobalContext()!;
-  const [documentName, setDocumentName] = useState(currentDocument?.name!);
+  const [documentName, setDocumentName] = useState(currentDocument?.name! || "");
 
   useEffect(() => {
-    setDocumentName(currentDocument?.name!);
+    setDocumentName(currentDocument?.name! || "");
   }, [currentDocument]);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
@@ -36,6 +38,8 @@ const TopToolsBar: React.FC = (): JSX.Element => {
         return document;
       });
       setDocuments(newDocuments);
+      // saved notification
+      toast.success(`${documentName} saved`);
     }
   };
 
@@ -47,6 +51,8 @@ const TopToolsBar: React.FC = (): JSX.Element => {
       setDocuments(newDocuments);
       setCurrentDocument(newDocuments[0]);
       setDocumentName(newDocuments[0]?.name);
+      // deleted notification
+      toast.error(`${documentName} deleted`);
     } else {
       setDocumentName("");
       setCurrentDocument(null);
@@ -67,8 +73,8 @@ const TopToolsBar: React.FC = (): JSX.Element => {
             className="text-field"
             onChange={handleChange}
             value={documentName}
-            disabled={!documents.length}
-            style={!documents.length ? { cursor: "not-allowed" } : {}}
+            disabled={!currentDocument}
+            style={!currentDocument ? { cursor: "not-allowed" } : {}}
           ></input>
         </div>
       </div>
