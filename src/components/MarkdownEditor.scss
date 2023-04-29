@@ -1,6 +1,5 @@
 @use "../sass/abstracts/" as *;
 .markdown-editor {
-  overflow: auto;
   display: flex;
   flex-direction: column;
   height: calc(100vh - rem(56));
@@ -27,6 +26,21 @@
         letter-spacing: rem(2);
         font-size: rem(14);
       }
+      svg:hover {
+        path {
+          fill: var(--orange);
+        }
+      }
+    }
+    #input,
+    #preview {
+      overflow: auto;
+      &::-webkit-scrollbar {
+        width: rem(8);
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: var(--mode-col);
+      }
     }
   }
 
@@ -37,8 +51,8 @@
     flex-direction: column;
 
     #input {
-      resize: none;
       height: 100%;
+      resize: none;
       outline: none;
       border: none;
       font-family: "Roboto Mono";
@@ -48,12 +62,6 @@
       padding: rem(16);
       background-color: var(--mode-bg);
       font-weight: 400;
-      &::-webkit-scrollbar {
-        width: rem(8);
-      }
-      &::-webkit-scrollbar-thumb {
-        background-color: var(--mode-col);
-      }
       &:focus {
         box-shadow: inset 0 0 0 1px var(--orange);
       }
@@ -71,13 +79,7 @@
       display: flex;
       flex-direction: column;
       gap: rem(20);
-      overflow: auto;
-      &::-webkit-scrollbar {
-        width: rem(8);
-      }
-      &::-webkit-scrollbar-thumb {
-        background-color: var(--mode-col);
-      }
+
       * {
         font-size: rem(14);
         line-height: rem(24);
@@ -176,7 +178,7 @@
 
     .markdown-preview {
       height: 100%;
-      width: 100%;
+      min-width: 50%;
       display: flex;
       flex-direction: column;
       justify-content: center;

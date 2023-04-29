@@ -1,6 +1,6 @@
 import "./MarkdownEditor.scss";
 import React, { useState } from "react";
-import { PreviewSvg } from "../assets/Svg";
+import { HidePreviewSvg, PreviewSvg } from "../assets/Svg";
 import { useGlobalContext } from "../hooks/useGlobalContext";
 import ReactMarkdown from "react-markdown";
 
@@ -38,7 +38,7 @@ const MarkdownEditor: React.FC = (): JSX.Element => {
         <header className="header">
           <h3 className="title">preview</h3>
           <button className="preview-btn" onClick={() => setPreview(!preview)}>
-            <PreviewSvg />
+            {preview ? <HidePreviewSvg /> : <PreviewSvg />}
           </button>
         </header>
         <div id="preview" className="content">
