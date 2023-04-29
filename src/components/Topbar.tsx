@@ -33,13 +33,16 @@ const TopToolsBar: React.FC = (): JSX.Element => {
           if (!currentDocumentName.endsWith(".md")) {
             currentDocumentName = `${currentDocumentName}.md`;
           }
+          if (currentDocumentName.length <= 3) {
+            currentDocumentName = "untitled-document.md";
+          }
           document.name = currentDocumentName;
+          // saved notification
+          toast.success(`${currentDocumentName} renamed`);
         }
         return document;
       });
       setDocuments(newDocuments);
-      // saved notification
-      toast.success(`${documentName} saved`);
     }
   };
 
