@@ -14,7 +14,7 @@ const TopToolsBar: React.FC = (): JSX.Element => {
     setSidebarIsClosed,
   } = useGlobalContext()!;
   const [documentName, setDocumentName] = useState(currentDocument?.name! || "");
-
+  const [showModalWindow, setShowModalWindow] = useState<boolean>(false);
   useEffect(() => {
     setDocumentName(currentDocument?.name! || "");
   }, [currentDocument]);
@@ -57,10 +57,28 @@ const TopToolsBar: React.FC = (): JSX.Element => {
       setDocumentName("");
       setCurrentDocument(null);
     }
+    setShowModalWindow(false);
   };
 
   return (
     <div className="topbar">
+      {/*Delete confirmation window  */}
+      {showModalWindow && (
+        <div className="modal-window">
+          <div className="overlay" onClick={() => setShowModalWindow(false)} />
+          <div className="content">
+            <h2 className="title">Delete this document?</h2>
+            <p className="message">
+              Are you sure you want to delete the <strong>"{currentDocument?.name}"</strong>{" "}
+              document and its contents? This action cannot be reversed
+            </p>
+            <button className="confirm-and-delete-btn" onClick={deleteDocument}>
+              confirm & delete
+            </button>
+          </div>
+        </div>
+      )}
+
       <div className="left-side">
         <button className="sidebar-toggle-btn" onClick={() => setSidebarIsClosed(!sidebarIsClosed)}>
           {sidebarIsClosed ? <MenuSvg /> : <CloseSvg />}
@@ -78,9 +96,13 @@ const TopToolsBar: React.FC = (): JSX.Element => {
           ></input>
         </div>
       </div>
-      {/* Delete Document  */}
+
       <div className="right-side">
-        <button className="delete-document-btn" onClick={deleteDocument}>
+        {/* Delete Document  */}
+        <button
+          className="delete-document-btn"
+          onClick={() => setShowModalWindow(currentDocument ? true : false)}
+        >
           <DeleteSvg />
         </button>
         {/* Save Document  */}

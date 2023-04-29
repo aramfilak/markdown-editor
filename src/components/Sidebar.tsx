@@ -44,22 +44,18 @@ const SideToolsBar: React.FC = (): JSX.Element => {
   });
 
   return (
-    <>
-      {!sidebarIsClosed && (
-        <aside className="sidebar">
-          <LogoSvg />
+    <aside className="sidebar" style={{ display: `${sidebarIsClosed ? "none" : "block"}` }}>
+      <LogoSvg />
 
-          <div className="my-documents">
-            <h2 className="title">my documents</h2>
-            <button className="new-document-btn" onClick={addNewDocument}>
-              + new document
-            </button>
-            <div className="documents">{renderedDocuments}</div>
-          </div>
-          <ThemeSwitcher />
-        </aside>
-      )}
-    </>
+      <div className="my-documents">
+        <h2 className="title">my documents</h2>
+        <button className="new-document-btn" onClick={addNewDocument}>
+          + new document
+        </button>
+        <div className="documents">{renderedDocuments}</div>
+      </div>
+      <ThemeSwitcher />
+    </aside>
   );
 };
 

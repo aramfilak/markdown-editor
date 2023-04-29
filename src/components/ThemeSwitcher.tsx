@@ -7,6 +7,9 @@ const PASSIVE_COLOR: string = "#5A6069";
 
 const ThemeSwitcher: React.FC = (): JSX.Element => {
   const [darkMode, setDarkMode] = useState<boolean>(true);
+
+  document.body.classList.toggle("light-theme", !darkMode);
+
   return (
     <div className="theme-switcher">
       {darkMode ? <DarkModeSvg color={ACTIVE_COLOR} /> : <DarkModeSvg color={PASSIVE_COLOR} />}

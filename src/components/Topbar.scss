@@ -5,6 +5,49 @@
   justify-content: space-between;
   background-color: var(--800);
 
+  .modal-window {
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100%;
+      background-color: var(--500);
+      opacity: 0.5;
+    }
+
+    .content {
+      width: rem(350);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: var(--mode-bg);
+      padding: rem(24);
+      border-radius: rem(4);
+      display: flex;
+      flex-direction: column;
+      gap: rem(16);
+      .title {
+        color: var(--mode-h);
+      }
+      .message {
+        color: var(--mode-p);
+        font-size: rem(14);
+        line-height: rem(24);
+      }
+      .confirm-and-delete-btn {
+        background-color: var(--orange);
+        padding-block: rem(10);
+        border-radius: rem(4);
+        color: var(--100);
+        text-transform: capitalize;
+        &:hover {
+          background-color: var(--orange-hover);
+        }
+      }
+    }
+  }
   .left-side {
     display: flex;
     align-items: center;

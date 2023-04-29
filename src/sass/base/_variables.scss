@@ -11,12 +11,13 @@ body {
   --100: #fff;
   --orange: #e46643;
   --orange-hover: #f39765;
-  --editor-bg: var(--1000);
-  --editor-h: var(--100);
-
+  --mode-bg: var(--1000);
+  --mode-h: var(--100);
+  --mode-p: var(--400);
   ---main-transition: all 0.3s ease-in-out;
 }
 body.light-theme {
-  --editor-bg: var(--100);
-  --editor-h: var(--1000);
+  --mode-bg: var(--100);
+  --mode-h: var(--1000);
+  --mode-p: var(--500);
 }
