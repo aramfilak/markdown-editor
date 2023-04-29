@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 import initialSetup from "../data/initial_setup.json";
 import { Document } from "../../@types/Document";
 
@@ -9,6 +9,8 @@ interface Context {
   setCurrentDocument: React.Dispatch<React.SetStateAction<Document | null>>;
   sidebarIsClosed: boolean;
   setSidebarIsClosed: React.Dispatch<React.SetStateAction<boolean>>;
+  markdownContent: string;
+  setMarkdownContent: React.Dispatch<React.SetStateAction<string>>;
 }
 
 interface ProviderProps {
@@ -21,6 +23,11 @@ const Provider: React.FC<ProviderProps> = ({ children }): JSX.Element => {
   const [currentDocument, setCurrentDocument] = useState<Document | null>(initialSetup[0]);
   const [documents, setDocuments] = useState<Document[]>(initialSetup);
   const [sidebarIsClosed, setSidebarIsClosed] = useState<boolean>(true);
+  const [markdownContent, setMarkdownContent] = useState<string>(currentDocument?.content!);
+
+  useEffect(() => {
+    setMarkdownContent(currentDocument?.content!);
+  }, [currentDocument]);
 
   return (
     <AppContext.Provider
@@ -31,6 +38,8 @@ const Provider: React.FC<ProviderProps> = ({ children }): JSX.Element => {
         setCurrentDocument,
         sidebarIsClosed,
         setSidebarIsClosed,
+        markdownContent,
+        setMarkdownContent,
       }}
     >
       {children}

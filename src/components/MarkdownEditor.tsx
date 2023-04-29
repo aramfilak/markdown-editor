@@ -1,9 +1,16 @@
-import { PreviewSvg } from "../assets/Svg";
 import "./MarkdownEditor.scss";
 import React, { useState } from "react";
+import { PreviewSvg } from "../assets/Svg";
+import Markdown from "./Markdwon";
+import { useGlobalContext } from "../hooks/useGlobalContext";
 
 const MarkdownEditor: React.FC = (): JSX.Element => {
+  const { markdownContent, setMarkdownContent } = useGlobalContext()!;
   const [preview, setPreview] = useState<boolean>(false);
+
+  const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setMarkdownContent(event.target.value);
+  };
   return (
     <div className="markdown-editor">
       {/*Markdown Input*/}
@@ -15,7 +22,7 @@ const MarkdownEditor: React.FC = (): JSX.Element => {
                 markdown
               </label>
             </header>
-            <textarea id="input" />
+            <textarea onChange={handleChange} value={markdownContent || ""} id="input" />
           </div>
           <hr className="column" />
         </>
@@ -28,7 +35,9 @@ const MarkdownEditor: React.FC = (): JSX.Element => {
             <PreviewSvg />
           </button>
         </header>
-        <div id="preview"></div>
+        <div id="preview">
+          <Markdown markdownContent={markdownContent} />
+        </div>
       </div>
     </div>
   );

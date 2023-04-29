@@ -12,6 +12,7 @@ const TopToolsBar: React.FC = (): JSX.Element => {
     setCurrentDocument,
     sidebarIsClosed,
     setSidebarIsClosed,
+    markdownContent,
   } = useGlobalContext()!;
   const [documentName, setDocumentName] = useState(currentDocument?.name! || "");
   const [showModalWindow, setShowModalWindow] = useState<boolean>(false);
@@ -28,7 +29,7 @@ const TopToolsBar: React.FC = (): JSX.Element => {
       currentDocument.name = documentName;
       const newDocuments = documents.map((document) => {
         if (document.id === currentDocument.id) {
-          // check if document name ends with ".md"
+          // document name
           let currentDocumentName = currentDocument.name;
           if (!currentDocumentName.endsWith(".md")) {
             currentDocumentName = `${currentDocumentName}.md`;
@@ -37,6 +38,8 @@ const TopToolsBar: React.FC = (): JSX.Element => {
             currentDocumentName = "untitled-document.md";
           }
           document.name = currentDocumentName;
+          // document content
+          document.content = markdownContent;
           // saved notification
           toast.success(`${currentDocumentName} renamed`);
         }
@@ -67,7 +70,8 @@ const TopToolsBar: React.FC = (): JSX.Element => {
     <div className="topbar">
       {/*Delete confirmation window  */}
       {showModalWindow && (
-        <div className="modal-window" onClick={() => setShowModalWindow(false)}>
+        <div className="modal-window">
+          <div className="overlay" onClick={() => setShowModalWindow(false)} />
           <div className="content">
             <h2 className="title">Delete this document?</h2>
             <p className="message">

@@ -41,12 +41,8 @@
         width: rem(8);
       }
 
-      &::-webkit-scrollbar-track {
-        background-color: var(--700);
-      }
-
       &::-webkit-scrollbar-thumb {
-        background-color: var(--600);
+        background-color: var(--700);
       }
 
       .document {

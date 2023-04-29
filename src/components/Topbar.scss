@@ -7,18 +7,19 @@
 
   .modal-window {
     position: absolute;
+    min-height: 100vh;
+    min-width: 100%;
     top: 0;
     left: 0;
-    height: 100vh;
-    width: 100%;
-    background-color: hsla(213, 4%, 51%, 0.5);
-    z-index: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+    z-index: 999;
+    .overlay {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background-color: var(--500);
+      opacity: 0.5;
+    }
     .content {
-      opacity: 1 !important;
       width: rem(350);
       background-color: var(--mode-bg);
       padding: rem(24);
@@ -26,6 +27,10 @@
       display: flex;
       flex-direction: column;
       gap: rem(16);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       .title {
         color: var(--mode-h);
       }
@@ -50,9 +55,10 @@
     display: flex;
     align-items: center;
     gap: rem(24);
+
     .sidebar-toggle-btn {
-      width: rem(72);
-      height: rem(72);
+      width: rem(56);
+      height: rem(56);
       background-color: var(--700);
       &:hover {
         background-color: var(--orange);
@@ -65,6 +71,7 @@
       display: flex;
       width: rem(160);
       position: relative;
+      transform: translateY(rem(7));
       .rename-field {
         background-color: inherit;
         border: none;
@@ -125,6 +132,12 @@
   }
 
   @include mq(md) {
+    .left-side {
+      .sidebar-toggle-btn {
+        width: rem(72);
+        height: rem(72);
+      }
+    }
     .right-side {
       .save-document-btn {
         display: flex;

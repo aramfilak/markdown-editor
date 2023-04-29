@@ -30,7 +30,9 @@
     display: flex;
     flex-direction: column;
     flex: 1;
+
     #input {
+      resize: none;
       height: 100%;
       outline: none;
       border: none;
@@ -43,6 +45,13 @@
       font-weight: 400;
       &:focus {
         box-shadow: inset 0 0 0 1px var(--orange);
+      }
+
+      &::-webkit-scrollbar {
+        width: rem(8);
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: var(--mode-col);
       }
     }
   }
