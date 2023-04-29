@@ -3,7 +3,7 @@ import "react-toastify/dist/ReactToastify.css";
 import React from "react";
 import Topbar from "./components/Topbar";
 import Sidebar from "./components/Sidebar";
-import { Bounce, ToastContainer, Zoom } from "react-toastify";
+import { Bounce, ToastContainer } from "react-toastify";
 import MarkdownEditor from "./components/MarkdownEditor";
 
 const App: React.FC = (): JSX.Element => {
