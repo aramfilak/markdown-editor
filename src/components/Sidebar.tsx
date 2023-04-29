@@ -6,6 +6,7 @@ import { LogoSvg, DocumentSvg } from "../assets/Svg";
 import { Document } from "../../@types/Document";
 import ThemeSwitcher from "./ThemeSwitcher";
 import { toast } from "react-toastify";
+
 const SideToolsBar: React.FC = (): JSX.Element => {
   const { documents, setDocuments, setCurrentDocument, sidebarIsClosed } = useGlobalContext()!;
 

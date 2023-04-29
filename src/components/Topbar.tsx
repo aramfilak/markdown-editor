@@ -89,11 +89,12 @@ const TopToolsBar: React.FC = (): JSX.Element => {
         {/* Rename Document  */}
         <div className="rename-document">
           <DocumentSvg />
-          <label className="rename-field-label" htmlFor="rename-field">
+          <label className="rename-field-label" htmlFor="rename-filed">
             document name
           </label>
           <input
             id="rename-filed"
+            name="rename filed"
             className="rename-field"
             onChange={handleChange}
             value={documentName}
