@@ -1,4 +1,4 @@
-import "./TopBar.scss";
+import "./Topbar.scss";
 import React, { useState, useEffect } from "react";
 import { useGlobalContext } from "../hooks/useGlobalContext";
 import { CloseSvg, DeleteSvg, DocumentSvg, LogoSvg, MenuSvg, SaveSvg } from "../assets/Svg";
