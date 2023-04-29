@@ -54,6 +54,9 @@
       width: rem(72);
       height: rem(72);
       background-color: var(--700);
+      &:hover {
+        background-color: var(--orange);
+      }
     }
     .logo {
       display: none;
@@ -104,7 +107,9 @@
       background-color: var(--orange);
       padding: rem(12);
       border-radius: rem(4);
-
+      p {
+        display: none;
+      }
       &:hover {
         background-color: var(--orange-hover);
       }
@@ -115,6 +120,21 @@
     .left-side {
       .logo {
         display: block;
+      }
+    }
+  }
+
+  @include mq(md) {
+    .right-side {
+      .save-document-btn {
+        display: flex;
+        gap: rem(8);
+        p {
+          display: inline;
+          color: var(--100);
+          text-transform: capitalize;
+          font-size: rem(15);
+        }
       }
     }
   }

@@ -1,0 +1,60 @@
+@use "../sass/abstracts/" as *;
+.markdown-editor {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 72px);
+  .column {
+    border: none;
+    border: rem(1.5) solid var(--mode-col);
+  }
+  .markdown-input,
+  .markdown-preview {
+    background-color: var(--mode-bg);
+    .header {
+      display: flex;
+      justify-content: space-between;
+      background-color: var(--mode-header);
+      padding: rem(14);
+
+      .title {
+        color: var(--mode-h);
+        text-transform: uppercase;
+        color: var(--mode-p);
+        font-weight: 500;
+        letter-spacing: rem(2);
+        font-size: rem(14);
+      }
+    }
+  }
+  .markdown-input {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    #input {
+      height: 100%;
+      outline: none;
+      border: none;
+      font-family: "Roboto Mono";
+      font-size: rem(14);
+      line-height: rem(24);
+      color: var(--mode-p);
+      padding: rem(16);
+      background-color: var(--mode-bg);
+      font-weight: 400;
+      &:focus {
+        box-shadow: inset 0 0 0 1px var(--orange);
+      }
+    }
+  }
+
+  .markdown-preview {
+    flex: 1;
+    #preview {
+      height: 100%;
+    }
+  }
+
+  @include mq(md) {
+    flex-direction: row;
+  }
+}

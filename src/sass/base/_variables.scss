@@ -14,10 +14,13 @@ body {
   --mode-bg: var(--1000);
   --mode-h: var(--100);
   --mode-p: var(--400);
-  ---main-transition: all 0.3s ease-in-out;
+  --mode-header: var(--900);
+  --mode-col: var(--700);
 }
 body.light-theme {
   --mode-bg: var(--100);
   --mode-h: var(--1000);
   --mode-p: var(--500);
+  --mode-header: var(--200);
+  --mode-col: var(--300);
 }

@@ -115,6 +115,7 @@ const TopToolsBar: React.FC = (): JSX.Element => {
         {/* Save Document  */}
         <button className="save-document-btn" onClick={saveDocument}>
           <SaveSvg />
+          <p> save changes</p>
         </button>
       </div>
     </div>
