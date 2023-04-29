@@ -67,8 +67,7 @@ const TopToolsBar: React.FC = (): JSX.Element => {
     <div className="topbar">
       {/*Delete confirmation window  */}
       {showModalWindow && (
-        <div className="modal-window">
-          <div className="overlay" onClick={() => setShowModalWindow(false)} />
+        <div className="modal-window" onClick={() => setShowModalWindow(false)}>
           <div className="content">
             <h2 className="title">Delete this document?</h2>
             <p className="message">
