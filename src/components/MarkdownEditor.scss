@@ -44,7 +44,7 @@
   .markdown-input {
     #input {
       width: 100%;
-      min-height: 50vh;
+      min-height: 40vh;
       resize: none;
       outline: none;
       border: none;
@@ -61,7 +61,7 @@
   }
 
   .markdown-preview {
-    min-height: 40vh;
+    min-height: 50vh;
     #preview {
       width: 100%;
       height: 100%;
