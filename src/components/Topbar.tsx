@@ -41,7 +41,7 @@ const TopToolsBar: React.FC = (): JSX.Element => {
           // document content
           document.content = markdownContent;
           // saved notification
-          toast.success(`${currentDocumentName} renamed`);
+          toast.success(`${currentDocumentName} saved`);
         }
         return document;
       });

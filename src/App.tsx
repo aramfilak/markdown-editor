@@ -9,7 +9,7 @@ import MarkdownEditor from "./components/MarkdownEditor";
 const App: React.FC = (): JSX.Element => {
   return (
     <main className="app">
-      <ToastContainer position="bottom-right" autoClose={1000} transition={Bounce} theme="dark" />
+      <ToastContainer position="top-center" autoClose={1000} transition={Bounce} theme="dark" />
       <Sidebar />
       <div className="app-body">
         <Topbar />
