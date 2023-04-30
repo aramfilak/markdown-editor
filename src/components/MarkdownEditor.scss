@@ -52,7 +52,6 @@
       font-size: rem(14);
       line-height: rem(24);
       color: var(--mode-p);
-      padding: rem(16);
       background-color: var(--mode-bg);
       font-weight: 400;
       &:focus {
@@ -62,11 +61,10 @@
   }
 
   .markdown-preview {
-    min-height: 50vh;
+    min-height: 40vh;
     #preview {
       width: 100%;
       height: 100%;
-      padding: rem(22) rem(48);
       display: flex;
       flex-direction: column;
       gap: rem(20);
@@ -176,7 +174,7 @@
         width: 100%;
       }
       #preview {
-        max-width: rem(800);
+        max-width: rem(950);
       }
     }
   }
