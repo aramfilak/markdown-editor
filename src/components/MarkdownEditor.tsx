@@ -1,17 +1,17 @@
 import "./MarkdownEditor.scss";
-import React, { useState } from "react";
-import { HidePreviewSvg, PreviewSvg } from "../assets/Svg";
-import { useGlobalContext } from "../hooks/useGlobalContext";
+import React, {useState} from "react";
+import {HidePreviewSvg, PreviewSvg} from "../assets/Svg";
+import {useGlobalContext} from "../hooks/useGlobalContext";
 import ReactMarkdown from "react-markdown";
 
 const MarkdownEditor: React.FC = (): JSX.Element => {
-  const { markdownContent, setMarkdownContent } = useGlobalContext()!;
+  const {markdownContent, setMarkdownContent} = useGlobalContext()!;
   const [preview, setPreview] = useState<boolean>(false);
-
+  
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setMarkdownContent(event.target.value);
   };
-
+  
   return (
     <div className="markdown-editor">
       {/*Markdown Input*/}
@@ -30,7 +30,7 @@ const MarkdownEditor: React.FC = (): JSX.Element => {
               className="content"
             />
           </div>
-          <hr className="column" />
+          <hr className="column"/>
         </>
       )}
       {/*Markdown Preview*/}
@@ -38,7 +38,7 @@ const MarkdownEditor: React.FC = (): JSX.Element => {
         <header className="header">
           <h3 className="title">preview</h3>
           <button className="preview-btn" onClick={() => setPreview(!preview)}>
-            {preview ? <HidePreviewSvg /> : <PreviewSvg />}
+            {preview ? <HidePreviewSvg/> : <PreviewSvg/>}
           </button>
         </header>
         <div id="preview" className="content">
