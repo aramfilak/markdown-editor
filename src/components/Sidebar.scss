@@ -1,7 +1,6 @@
 @use '../sass/abstracts/' as *;
 .sidebar {
-    position: relative;
-    min-height: 100vh;
+    height: 100vh;
     min-width: rem(250);
     background-color: var(--900);
     display: flex;
